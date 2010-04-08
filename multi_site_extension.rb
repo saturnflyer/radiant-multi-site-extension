@@ -9,6 +9,7 @@ class MultiSiteExtension < Radiant::Extension
 
   define_routes do |map|
     map.namespace :admin, :member => { :remove => :get } do |admin|
+      admin.edit_site '/pages/site/:site_id', :controller => 'pages', :action => 'index'
       admin.resources :sites, :member => {
         :move_higher => :post,
         :move_lower => :post,
